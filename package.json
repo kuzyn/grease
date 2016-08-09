@@ -1,0 +1,24 @@
+{
+  "name": "grease",
+  "version": "1.0.0",
+  "description": "Rabid promiscuity + cars = grease",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'no test yet :('; exit 0;"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kuzyn/grease.git"
+  },
+  "author": "kuzyn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kuzyn/grease/issues"
+  },
+  "homepage": "https://github.com/kuzyn/grease#readme",
+  "dependencies": {
+    "cheerio": "^0.20.0",
+    "express": "^4.14.0",
+    "request": "^2.74.0"
+  }
+}
