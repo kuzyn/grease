@@ -4,19 +4,37 @@ const cheerio = require('cheerio');
 const app = express();
 
 app.get('/', function(req, res) {
-	//res.send('hello you');
-	var url = 'http://montreal.craigslist.ca/search/m4m?lang=en&cc=us'
-	var result;
+  //res.send('hello you');
+  var urlCars= 'http://montreal.craigslist.ca/search/cta'
+  var urlCasual = 'http://montreal.craigslist.ca/search/m4m?lang=en&cc=us'
+  var resultCars;
+  var resultCasual;
 
-	request(url, function(error, response, html) {
-	
-		if(!error) {
-			result = response;
-		} else {
-			result = error;
-		}
-		res.send(result.body);
-	});
+  request.get(urlCars) 
+    .on('error', function(err) {
+      // not okay
+      console.log(err);
+    })
+    .on('response', function(response) {
+      if(response.statusCode === 200) {
+        // okay
+        console.log('cars');
+        resultCars = response;
+        showPage(resultCars, resultCasual);
+      }
+    }); 
+
+
+  function showPage(body1, body2) {
+    console.log(body1, body2); 
+    
+    if(resultCars) {
+      res.send(resultCars);
+    } else {
+      res.send('<p>oo</p>');
+    }
+
+  }
 });
 
 app.listen('3000');
